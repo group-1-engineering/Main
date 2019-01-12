@@ -1,6 +1,6 @@
 <?php
 header('Content-type: application/json');
-require_once('php-mailer/PHPMailerAutoload.php'); // Include PHPMailer
+require_once('PHP-Mailer-master/PHPMailerAutoload.php'); // Include PHPMailer
 
 $mail = new PHPMailer();
 $emailTO = $emailBCC =  $emailCC = array(); $formEmail = '';
