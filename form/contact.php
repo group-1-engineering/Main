@@ -1,12 +1,12 @@
 <?php
 header('Content-type: application/json');
-require_once('php-mailer/PHPMailerAutoload.php'); // Include PHPMailer
+require_once('form/php-mailer/PHPMailerAutoload.php'); // Include PHPMailer
 
 $mail = new PHPMailer();
 $emailTO = $emailBCC =  $emailCC = array(); $formEmail = '';
 
 ### Enter Your Sitename
-$sitename = 'Chronic Fatigue Syndrome Foundation';
+$sitename = 'cfs-foundation.org';
 
 ### Enter your email addresses: @required
 $emailTO[] = array( 'email' => 'dogscult@gmail.com', 'name' => 'Contact Us' );
