@@ -1,0 +1,12 @@
+{
+    "name": "hacker/php-mailer",
+    "authors": [
+        {
+            "name": "PXOS",
+            "email": "laura@pxos.org"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.0"
+    }
+}
