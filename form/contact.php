@@ -1,15 +1,15 @@
 <?php
 header('Content-type: application/json');
-require_once('form/php-mailer/PHPMailerAutoload.php'); // Include PHPMailer
+require_once('php-mailer/PHPMailerAutoload.php'); // Include PHPMailer
 
 $mail = new PHPMailer();
 $emailTO = $emailBCC =  $emailCC = array(); $formEmail = '';
 
 ### Enter Your Sitename
-$sitename = 'cfs-foundation.org';
+$sitename = 'PXOS';
 
 ### Enter your email addresses: @required
-$emailTO[] = array( 'email' => 'dogscult@gmail.com', 'name' => 'Contact Us' );
+$emailTO[] = array( 'email' => 'laura@pxos.org', 'name' => 'Contact Us' );
 
 ### Enable bellow parameters & update your BCC email if require.
 //$emailBCC[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
