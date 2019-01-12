@@ -919,32 +919,41 @@ Complications - Possible complications of chronic fatigue syndrome include: Depr
 												<h6 class="section-title-s6 animated" data-animate="fadeInUp" data-delay=".3"> If you have sucidal thoughts, please contact the National Suicide Prevention Lifeline at 1-800-273-8255</h6>
 
                     </div>
-					<ul class="contact-info-alt">
-						<li class="animated" data-animate="fadeInUp" data-delay=".4"><em class="fa fa-phone"></em><span>+1 (646) 847-0806</span></li>
-						<li class="animated" data-animate="fadeInUp" data-delay=".5"><em class="fa fa-envelope"></em><span>info@CFS-Foundation.org</span></li>
-						<li class="animated" data-animate="fadeInUp" data-delay=".6"><em class="fa fa-paper-plane"></em><span>Join us on Telegram</span></li>
-					</ul>
-				</div><!-- .col -->
-				<div class="col-lg-4 col-md-7 offset-lg-1 offset-md-0 res-m-bttm">
-				    <div class="gaps size-3x d-none d-md-block"></div>
-				    <div class="gaps size-2x"></div>
-					<form id="contact-form" class="form-message form-message-s2 text-left" action="form/contact.php" method="post">
-						<div class="form-results"></div>
-						<div class="input-field animated" data-animate="fadeInUp" data-delay=".7">
-							<input name="contact-name" type="text" placeholder="Your Name" class="input-border required">
-						</div>
-						<div class="input-field animated" data-animate="fadeInUp" data-delay=".8">
-							<input name="contact-email" type="email" placeholder="Your Email" class="input-border required email">
-						</div>
-						<div class="input-field animated" data-animate="fadeInUp" data-delay=".9">
-							<textarea name="contact-message" placeholder="Your Message" class="txtarea input-border required"></textarea>
-						</div>
-						<input type="text" class="d-none" name="form-anti-honeypot" value="">
-						<div class="input-field animated" data-animate="fadeInUp" data-delay="1.0">
-							<button type="submit" class="btn">Submit</button>
-						</div>
-					</form>
-				</div><!-- .col -->
+										<html lang="en">
+										    <head>
+										        <meta charset="utf-8">
+										        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+										        <meta name="viewport" content="width=device-width, initial-scale=1">
+										        <title>A Contact Form Using Phpmailer - reusable form</title>
+										        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" >
+										        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+										        <link rel="stylesheet" href="form.css" >
+										        <script src="form.js"></script>
+										    </head>
+										    <body >
+										        <div class="container">
+										            <div class="form-container">
+										                <h1>
+										                    Contact Us
+										                </h1>
+										                <form method="post" id="reused_form" >
+										                    <label for="name">Your Name:</label>
+										                    <input id="name" type="text" name="Name" required maxlength="50">
+										                    <label for="email">Email Address:</label>
+										                    <input id="email" type="email" name="Email" required maxlength="50">
+										                    <label for="message">Message:</label>
+										                    <textarea id="message" name="Message" rows="10" maxlength="6000" required></textarea>
+										                    <button class="button-primary" type="submit" >Post</button>
+										                </form>
+										                <div id="success_message" style="display:none">
+										                    <h3>Submitted the form successfully!</h3>
+										                    <p> We will get back to you soon. </p>
+										                </div>
+										                <div id="error_message" style="width:100%; height:100%; display:none; "> <h3>Error</h3> Sorry there was an error sending your form. </div>
+										            </div>
+										        </div>
+										    </body>
+										</html>
 				<div class="col-lg-4 align-self-center">
                     <div class="fake-class animated" data-animate="fadeInUp" data-delay="1.1">
                         <img src="images/jasmine/graph-jasmine-f.png" alt="graph">
