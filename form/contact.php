@@ -1,15 +1,15 @@
 <?php
 header('Content-type: application/json');
-require_once('PHP-Mailer-master/PHPMailerAutoload.php'); // Include PHPMailer
+require_once('form/php-mailer/PHPMailerAutoload.php'); // Include PHPMailer
 
 $mail = new PHPMailer();
 $emailTO = $emailBCC =  $emailCC = array(); $formEmail = '';
 
 ### Enter Your Sitename
-$sitename = '';
+$sitename = 'PXOS';
 
 ### Enter your email addresses: @required
-$emailTO[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
+$emailTO[] = array( 'email' => 'laura@pxos.org', 'name' => 'Contact Us' );
 
 ### Enable bellow parameters & update your BCC email if require.
 //$emailBCC[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
@@ -18,7 +18,7 @@ $emailTO[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
 //$emailCC[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
 
 ### Enter Email Subject
-$subject = "Subscriber Notification" . ' - ' . $sitename;
+$subject = "Contact Us" . ' - ' . $sitename;
 
 ### If your did not recive email after submit form please enable below line and must change to your correct domain name. eg. noreply@example.com
 //$formEmail = 'noreply@yoursite.com';
@@ -27,7 +27,7 @@ $subject = "Subscriber Notification" . ' - ' . $sitename;
 $msg_success = "We have <strong>successfully</strong> received your message. Someone from the Chronic Fatigue Foundation Will get back to you soon.";
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST') {
-	if (isset($_POST["contact-email"]) && $_POST["contact-email"] != '' && isset($_POST["contact-name"]) && $_POST["contact-name"] != '') {
+	if (isset($_POST["laura@pxos.org"]) && $_POST["laura@pxos.org"] != '' && isset($_POST["laura@pxos.org"]) && $_POST["laura@pxos.org"] != '') {
 		### Form Fields
 		$cf_email = $_POST["contact-email"];
 		$cf_name = $_POST["contact-name"];
