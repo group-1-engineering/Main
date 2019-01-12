@@ -6,10 +6,10 @@ $mail = new PHPMailer();
 $emailTO = $emailBCC =  $emailCC = array(); $formEmail = '';
 
 ### Enter Your Sitename
-$sitename = 'PXOS';
+$sitename = '';
 
 ### Enter your email addresses: @required
-$emailTO[] = array( 'email' => 'laura@pxos.org', 'name' => 'Contact Us' );
+$emailTO[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
 
 ### Enable bellow parameters & update your BCC email if require.
 //$emailBCC[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
@@ -18,7 +18,7 @@ $emailTO[] = array( 'email' => 'laura@pxos.org', 'name' => 'Contact Us' );
 //$emailCC[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
 
 ### Enter Email Subject
-$subject = "Contact Us " . ' - ' . $sitename;
+$subject = "Subscriber Notification" . ' - ' . $sitename;
 
 ### If your did not recive email after submit form please enable below line and must change to your correct domain name. eg. noreply@example.com
 //$formEmail = 'noreply@yoursite.com';
