@@ -1,15 +1,15 @@
 <?php
 header('Content-type: application/json');
-require_once('form/php-mailer/PHPMailerAutoload.php'); // Include PHPMailer
+require_once('PHP-Mailer-master/PHPMailerAutoload.php'); // Include PHPMailer
 
 $mail = new PHPMailer();
 $emailTO = $emailBCC =  $emailCC = array(); $formEmail = '';
 
 ### Enter Your Sitename
-$sitename = 'CFS-Foundation.org';
+$sitename = '';
 
 ### Enter your email addresses: @required
-$emailTO[] = array( 'email' => 'laura@pxos.org', 'name' => 'Contact Us' );
+$emailTO[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
 
 ### Enable bellow parameters & update your BCC email if require.
 //$emailBCC[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
@@ -18,7 +18,7 @@ $emailTO[] = array( 'email' => 'laura@pxos.org', 'name' => 'Contact Us' );
 //$emailCC[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
 
 ### Enter Email Subject
-$subject = "Contact Us" . ' - ' . $sitename;
+$subject = "Subscriber Notification" . ' - ' . $sitename;
 
 ### If your did not recive email after submit form please enable below line and must change to your correct domain name. eg. noreply@example.com
 //$formEmail = 'noreply@yoursite.com';
@@ -27,7 +27,7 @@ $subject = "Contact Us" . ' - ' . $sitename;
 $msg_success = "We have <strong>successfully</strong> received your message. Someone from the Chronic Fatigue Foundation Will get back to you soon.";
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST') {
-	if (isset($_POST["laura@pxos.org"]) && $_POST["laura@pxos.org"] != '' && isset($_POST["laura@pxos.org"]) && $_POST["laura@pxos.org"] != '') {
+	if (isset($_POST["contact-email"]) && $_POST["contact-email"] != '' && isset($_POST["contact-name"]) && $_POST["contact-name"] != '') {
 		### Form Fields
 		$cf_email = $_POST["contact-email"];
 		$cf_name = $_POST["contact-name"];
@@ -77,7 +77,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
 			$bodymsg .= isset($cf_name) ? "Contact Name: $cf_name<br><br>" : '';
 			$bodymsg .= isset($cf_email) ? "Contact Email: $cf_email<br><br>" : '';
 			$bodymsg .= isset($cf_message) ? "Message: $cf_message<br><br>" : '';
-			$bodymsg .= $_SERVER['HTTP_REFERER'] ? '<br>---<br><br>This email was sent from [CFS Foundation]: ' . $_SERVER['HTTP_REFERER'] : '';
+			$bodymsg .= $_SERVER['HTTP_REFERER'] ? '<br>---<br><br>This email was sent from [ICO]: ' . $_SERVER['HTTP_REFERER'] : '';
 
 			// Mailing
 			$mail->MsgHTML( $bodymsg );
