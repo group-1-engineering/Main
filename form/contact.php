@@ -5,11 +5,11 @@ require_once('php-mailer/PHPMailerAutoload.php'); // Include PHPMailer
 $mail = new PHPMailer();
 $emailTO = $emailBCC =  $emailCC = array(); $formEmail = '';
 
-### Enter Your Sitename 
-$sitename = 'Your Site Name';
+### Enter Your Sitename
+$sitename = 'Chronic Fatigue Syndrome Foundation';
 
 ### Enter your email addresses: @required
-$emailTO[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' ); 
+$emailTO[] = array( 'email' => 'dogscult@gmail.com', 'name' => 'Contact Us' );
 
 ### Enable bellow parameters & update your BCC email if require.
 //$emailBCC[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
@@ -18,13 +18,13 @@ $emailTO[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
 //$emailCC[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
 
 ### Enter Email Subject
-$subject = "Contact Us " . ' - ' . $sitename; 
+$subject = "Contact Us " . ' - ' . $sitename;
 
 ### If your did not recive email after submit form please enable below line and must change to your correct domain name. eg. noreply@example.com
 //$formEmail = 'noreply@yoursite.com';
 
 ### Success Messages
-$msg_success = "We have <strong>successfully</strong> received your message. We'll get back to you soon.";
+$msg_success = "We have <strong>successfully</strong> received your message. Someone from the Chronic Fatigue Foundation Will get back to you soon.";
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (isset($_POST["contact-email"]) && $_POST["contact-email"] != '' && isset($_POST["contact-name"]) && $_POST["contact-name"] != '') {
@@ -35,9 +35,9 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		$honeypot 	= isset($_POST["form-anti-honeypot"]) ? $_POST["form-anti-honeypot"] : 'bot';
 		$bodymsg = '';
-		
+
 		if ($honeypot == '' && !(empty($emailTO))) {
-			### If you want use SMTP 
+			### If you want use SMTP
 			// $mail->isSMTP();
 			// $mail->SMTPDebug = 0;
 			// $mail->Host = 'smtp_host';
@@ -54,23 +54,23 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
 			$mail->FromName = $cf_name . ' - ' . $sitename;
 			$mail->AddReplyTo($cf_email, $cf_name);
 			$mail->Subject = $subject;
-			
+
 			foreach( $emailTO as $to ) {
 				$mail->AddAddress( $to['email'] , $to['name'] );
 			}
-			
+
 			### if CC found
 			if (!empty($emailCC)) {
 				foreach( $emailCC as $cc ) {
 					$mail->AddCC( $cc['email'] , $cc['name'] );
 				}
 			}
-			
+
 			### if BCC found
 			if (!empty($emailBCC)) {
 				foreach( $emailBCC as $bcc ) {
 					$mail->AddBCC( $bcc['email'] , $bcc['name'] );
-				}				
+				}
 			}
 
 			### Include Form Fields into Body Message
@@ -78,7 +78,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
 			$bodymsg .= isset($cf_email) ? "Contact Email: $cf_email<br><br>" : '';
 			$bodymsg .= isset($cf_message) ? "Message: $cf_message<br><br>" : '';
 			$bodymsg .= $_SERVER['HTTP_REFERER'] ? '<br>---<br><br>This email was sent from [ICO]: ' . $_SERVER['HTTP_REFERER'] : '';
-			
+
 			// Mailing
 			$mail->MsgHTML( $bodymsg );
 			$is_emailed = $mail->Send();
@@ -89,7 +89,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
 				$response = array ('result' => "error", 'message' => $mail->ErrorInfo);
 			}
 			echo json_encode($response);
-			
+
 		} else {
 			echo json_encode(array ('result' => "error", 'message' => "Bot <strong>Detected</strong>.! Clean yourself Botster.!"));
 		}
